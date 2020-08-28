@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DietActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_diet_activity"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:titleTextColor="@color/colorWhite"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_diet_activity"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilHeight2"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etHeight2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Estatura (en cm)"
+                android:inputType="numberDecimal"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilWeight"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Peso (kilos)"
+                android:inputType="numberDecimal"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilAge"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Edad"
+                android:inputType="number"
+                android:textSize="16sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:id="@+id/rgGender2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etWaist"
+            android:layout_margin="10dp"
+            android:background="@drawable/radio_group_tab_background"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/tab_selector_background_color"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="MUJER"
+                android:textColor="@drawable/tab_selector_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/tab_selector_background_color"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="HOMBRE"
+                android:textColor="@drawable/tab_selector_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <RadioButton
+                android:id="@+id/rbNoActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Poco ejercicio"/>
+
+            <RadioButton
+                android:id="@+id/rbLightActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Ejercicio ligero: 1-3 veces por semana" />
+
+            <RadioButton
+                android:id="@+id/rbModerateActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Ejercicio moderado: 3-5 veces por semana" />
+
+            <RadioButton
+                android:id="@+id/rbAthleteActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Deportista: 5-7 veces por semana" />
+
+            <RadioButton
+                android:id="@+id/rbEliteActivity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Elite: Diario mañana y tarde" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tvPrueba"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="¿Cual es su propósito?"/>
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/etWaist"
+            android:layout_margin="10dp"
+            android:background="@drawable/radio_group_tab_background"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rbThin"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/tab_selector_background_color"
+                android:button="@null"
+                android:gravity="center"
+                android:checked="false"
+                android:text="Adelgazar"
+                android:textColor="@drawable/tab_selector_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbMaintenance"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/tab_selector_background_color"
+                android:button="@null"
+                android:gravity="center"
+                android:checked="true"
+                android:text="Mantenimiento"
+                android:textColor="@drawable/tab_selector_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/rbGain"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/tab_selector_background_color"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="Ganar Músculo"
+                android:textColor="@drawable/tab_selector_text_color"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnCalculateCalories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorAccent"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:text="CALCULAR"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

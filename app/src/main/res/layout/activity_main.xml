@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,24 +21,25 @@
             android:src="@drawable/main_logo"/>
 
         <LinearLayout
-            android:id="@+id/llStart"
+            android:id="@+id/llExercise"
             android:layout_width="@dimen/start_button_size"
             android:layout_height="@dimen/start_button_size"
             android:layout_marginTop="@dimen/start_button_margin_top"
             android:gravity="center"
-            android:background="@drawable/boton_start_fondo_efecto_click">
+            android:background="@drawable/boton_circular_color_fondo">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/str_start"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/start_button_label_textsize"/>
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:tint="@color/colorWhite"
+                android:src="@drawable/ic_sport"/>
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="30dp"
             android:baselineAligned="false"
@@ -110,6 +112,67 @@
             </LinearLayout>
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:baselineAligned="false"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/llDiet"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/boton_circular_color_fondo"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:contentDescription="@string/image"
+                        android:src="@drawable/ic_food"
+                        android:tint="@color/colorWhite"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:text="Dieta"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right">
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:textSize="16sp"
+                android:textColor="@color/colorBlack"
+                android:text="i"
+                android:textStyle="italic"
+                android:background="@drawable/boton_start_color_borde_circulo"
+                />
+        </LinearLayout>
+
 
     </LinearLayout>
 

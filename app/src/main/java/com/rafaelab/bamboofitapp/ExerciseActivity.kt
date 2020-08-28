@@ -17,17 +17,18 @@ import kotlinx.android.synthetic.main.dialog_confirmation_finish_exercise.*
 import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
+import com.bumptech.glide.Glide;
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     //Variables
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
-    private var restTimerDuration: Long = 10
+    private var restTimerDuration: Long = 1//0
 
     private var exerciseTimer: CountDownTimer? = null
     private var exerciseProgress = 0
-    private var exerciseTimerDuration: Long = 30
+    private var exerciseTimerDuration: Long = 5//30
 
     private var exerciseList: ArrayList<ExerciseModel>? = null
     private var currentExercisePosition = -1
@@ -37,6 +38,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private var tts: TextToSpeech? = null
 
     private var exerciseAdapter: ExerciseStatusAdapter? = null
+
+    var levelChoose = 1
 
     var timeLeft: Long = 0
 
@@ -55,8 +58,16 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             //onBackPressed()
             customDialogForBackButton()
         }
+
+        //Obtener nivel elegido por usuario en activity anterior
+        val levelChoose = intent.getIntExtra("level_key",levelChoose)
+
         //Inicializar la lista de ejercicios
-        exerciseList = Constants.defaultExerciseList()
+        when(levelChoose){
+            0 -> exerciseList = Constants.easyExerciseList()
+            1 -> exerciseList = Constants.mediumExerciseList()
+            2 -> exerciseList = Constants.advancedExerciseList()
+        }
 
         setupRestView()
 
@@ -174,6 +185,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
         speakText(exerciseList!![currentExercisePosition].getName())
         setExerciseProgressBar(withTime = exerciseTimerDuration)
+
+        Glide.with(this).load(exerciseList!![currentExercisePosition].getImage()).into(ivImage)
 
         ivImage.setImageResource(exerciseList!![currentExercisePosition].getImage())
         tvExerciseName.text = exerciseList!![currentExercisePosition].getName()

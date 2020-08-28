@@ -104,9 +104,10 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:contentDescription="@string/image"
-            android:scaleType="fitXY"
-            android:src="@drawable/ic_jumping_jacks"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_prueba"
             />
+        //android:scaleType="fitXY"
 
         <TextView
             android:id="@+id/tvExerciseName"

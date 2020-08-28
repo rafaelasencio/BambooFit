@@ -11,10 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        llStart.setOnClickListener {
+        llExercise.setOnClickListener {
 
             val intent = Intent(
-                this, ExerciseActivity::class.java)
+                this, StartExerciseActivity::class.java)
 
             startActivity(intent)
         }
@@ -31,6 +31,13 @@ class MainActivity : AppCompatActivity() {
                 this, HistoryActivity::class.java)
             startActivity(intent)
         }
+
+        llDiet.setOnClickListener {
+            val intent = Intent(
+                this, DietActivity::class.java)
+            startActivity(intent)
+        }
+
 
 
 
