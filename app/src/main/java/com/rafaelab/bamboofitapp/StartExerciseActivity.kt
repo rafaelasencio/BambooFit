@@ -30,11 +30,6 @@ class StartExerciseActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        tvOwnRoutine.setOnClickListener {
-            //Pasar a la configuracion de la rutina
-
-        }
-
     }
 
     private fun getExerciseLevel(): Int {

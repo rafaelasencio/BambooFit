@@ -1,5 +1,6 @@
 package com.rafaelab.bamboofitapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -26,6 +27,8 @@ class FinishActivity : AppCompatActivity() {
 
         btnFinish.setOnClickListener {
             finish()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
 
         addDateToDatabase()
