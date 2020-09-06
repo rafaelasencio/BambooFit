@@ -33,8 +33,9 @@ class MainActivity : AppCompatActivity() {
         }
 
         llDiet.setOnClickListener {
+            //DietActivity
             val intent = Intent(
-                this, DietActivity::class.java)
+                this, FoodListActivity::class.java)
             startActivity(intent)
         }
 

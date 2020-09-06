@@ -1,0 +1,26 @@
+[
+   {
+      "id": "1",
+      "title": "CREMA DE CALABACÍN",
+      "kcal": 74,
+      "ingredients": "Calabacín 250 g, 1 quesito descremado"
+   },
+   {
+      "id": "2",
+      "title": "PANACHÉ DE VERDURAS",
+      "kcal": 90,
+      "ingredients": "Judías verdes, coliflor, zanahoria y coles de Bruselas, totalizando un peso de 250 g"
+   },
+   {
+      "id": "3",
+      "title": "SOPA",
+      "kcal": 93,
+      "ingredients": "Pasta fina 25 g y caldo de pollo desgrasado 250 ml."
+   },
+   {
+      "id": "4",
+      "title": "ALCACHOFAS HERVIDAS",
+      "kcal": 95,
+      "ingredients": "Alcachofas 250 g."
+   }
+]
