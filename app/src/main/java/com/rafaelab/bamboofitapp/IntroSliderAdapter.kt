@@ -1,5 +1,6 @@
 package com.rafaelab.bamboofitapp
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
@@ -8,16 +9,22 @@ import androidx.recyclerview.widget.RecyclerView
 
 class IntroSliderAdapter(private val introSliders: List<IntroSlide>):
     RecyclerView.Adapter<IntroSliderAdapter.IntroSlideViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IntroSlideViewHolder {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return IntroSlideViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.slider_container, parent, false
+            )
+        )
     }
 
     override fun getItemCount(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return introSliders.size
     }
 
     override fun onBindViewHolder(holder: IntroSlideViewHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        holder.bind(introSliders[position])
     }
 
     inner class IntroSlideViewHolder(view: View): RecyclerView.ViewHolder(view){
