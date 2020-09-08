@@ -1,26 +1,51 @@
-[
-   {
-      "id": "1",
-      "title": "CREMA DE CALABACÍN",
-      "kcal": 74,
-      "ingredients": "Calabacín 250 g, 1 quesito descremado"
-   },
-   {
-      "id": "2",
-      "title": "PANACHÉ DE VERDURAS",
-      "kcal": 90,
-      "ingredients": "Judías verdes, coliflor, zanahoria y coles de Bruselas, totalizando un peso de 250 g"
-   },
-   {
-      "id": "3",
-      "title": "SOPA",
-      "kcal": 93,
-      "ingredients": "Pasta fina 25 g y caldo de pollo desgrasado 250 ml."
-   },
-   {
-      "id": "4",
-      "title": "ALCACHOFAS HERVIDAS",
-      "kcal": 95,
-      "ingredients": "Alcachofas 250 g."
-   }
-]
+
+{
+   "calorias": [{
+      "1000": {
+         "desayuno": [
+            "Leche descremada (150 ml)",
+            "Pan blanco o integral.(25gr)",
+            "Jamón cocido (30gr)"
+         ],
+         "media-mañana": "1 pieza de fruta",
+         "almuerzo": [
+            "Verduras cocidas (300gr)",
+            "Carne magra a la plancha (125gr)",
+            "Pan tostado (25gr)"
+         ],
+         "merienda": [
+            "1 pieza de fruta",
+            "Cafe o te con sacarina"
+         ],
+         "cena": [
+            "Verduras cocidas (200gr)",
+            "1 huevo revuelto con tomate",
+            "Ensalada (100gr)",
+            "Pan tostado (25gr)"
+         ]
+      },
+      "1200": {
+         "desayuno": [
+            "Leche descremada (150 ml)",
+            "Pan blanco o integral.(25gr)",
+            "Jamón cocido (30gr)"
+         ],
+         "media-mañana": "1 pieza de fruta",
+         "almuerzo": [
+            "Verduras cocidas (300gr)",
+            "Carne magra a la plancha (125gr)",
+            "Pan tostado (25gr)"
+         ],
+         "merienda": [
+            "1 pieza de fruta",
+            "Cafe o te con sacarina"
+         ],
+         "cena": [
+            "Verduras cocidas (200gr)",
+            "1 huevo revuelto con tomate",
+            "Ensalada (100gr)",
+            "Pan tostado (25gr)"
+         ]
+      }
+   }]
+}

@@ -48,9 +48,11 @@ class FoodListActivity : AppCompatActivity() {
  */
 
 
-        readJSON()
+        //readJSON()
 
-        setupFoodListAdapter()
+        //setupFoodListAdapter()
+
+        readJSON2()
     }
 
     private fun setupFoodListAdapter(){
@@ -67,6 +69,8 @@ class FoodListActivity : AppCompatActivity() {
             }
 
             var jsonArray = JSONArray(fileInString)
+
+            val dieta = jsonArray.getJSONObject(1)
             for (i in 0..jsonArray.length()-1){
                 val item = jsonArray.getJSONObject(i)
 
@@ -83,6 +87,23 @@ class FoodListActivity : AppCompatActivity() {
 
         }
 
+    }
+
+    fun readJSON2(){
+        try {
+            val fileInString: String = applicationContext.assets.open("foodList.json").bufferedReader().use {
+                it.readText()
+            }
+            var jsonObjects = JSONObject(fileInString)
+            var calories = jsonObjects.getJSONArray("calorias")
+            
+            (0 until calories.length())
+            println(calories)
+            Log.e("kcal", calories.length().toString())
+
+        }catch (e: IOException){
+
+        }
     }
 
 
