@@ -3,7 +3,7 @@ package com.rafaelab.bamboofitapp
 class FoodModel(private var id: Int,
                 private var foodTitle: String,
                 private var kcal: Int,
-                private var ingredients: String) {
+                private var ingredients: List<String>) {
 
     fun getId(): Int {
         return id
@@ -29,11 +29,13 @@ class FoodModel(private var id: Int,
         this.kcal = kcal
     }
 
-    fun getIngredients():String{
+    fun getIngredientsList():List<String>{
         return ingredients
     }
 
-    fun setIngredients(ingredients: String){
+    fun setIngredientsList(ingredients: List<String>){
         this.ingredients = ingredients
     }
+
+
 }

@@ -19,7 +19,7 @@ import java.io.InputStream
 
 class FoodListActivity : AppCompatActivity() {
 
-    private var foodList = ArrayList<FoodModel>()
+    private var foodMenu = ArrayList<MenuModel>()
     private var foodAdapter: FoodListAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,72 +38,60 @@ class FoodListActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-/*
-        val fm1 = FoodModel(1, "AAA", 98, ArrayList<String>())
-        foodList.add(fm1)
-        val fm2 = FoodModel(2, "BBB", 70, ArrayList<String>())
-        foodList.add(fm2)
+        getDietForCalories(1000)
+        setupFoodListAdapter()
 
-
- */
-
-
-        //readJSON()
-
-        //setupFoodListAdapter()
-
-        readJSON2()
     }
 
     private fun setupFoodListAdapter(){
         rvFoodList.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.VERTICAL, false)
-        foodAdapter = FoodListAdapter(foodList!!, this)
+        foodAdapter = FoodListAdapter(foodMenu!!, this)
         rvFoodList.adapter = foodAdapter
     }
 
-    fun readJSON(){
+
+    fun getDietForCalories(calories: Int): ArrayList<MenuModel> {
         try {
             val fileInString: String = applicationContext.assets.open("foodList.json").bufferedReader().use {
                 it.readText()
             }
 
-            var jsonArray = JSONArray(fileInString)
+            var jsonObjects = JSONObject(fileInString)
+            var jsonDiet = jsonObjects.optJSONObject(calories.toString())
 
-            val dieta = jsonArray.getJSONObject(1)
-            for (i in 0..jsonArray.length()-1){
-                val item = jsonArray.getJSONObject(i)
+            val breakfastIngredients = getIngredientsList(jsonDiet, "desayuno")
+            val brunchIngredients = getIngredientsList(jsonDiet, "media-mañana")
+            val lunchIngredients = getIngredientsList(jsonDiet, "almuerzo")
+            val breakIngredients = getIngredientsList(jsonDiet, "merienda")
+            val dinnerIngredients = getIngredientsList(jsonDiet, "cena")
 
-                val id = item.getString("id")
-                val title = item.getString("title")
-                val kcal = item.getString("kcal")
-                val ingredients = item.getString("ingredients")
+            val desayuno = MenuModel("Desayuno", breakfastIngredients, 100)
+            val mediaMañana = MenuModel("Media Mañana", brunchIngredients, 100)
+            val almuerzo = MenuModel("Almuerzo", lunchIngredients, 100)
+            val merienda = MenuModel("Merienda", breakIngredients, 100)
+            val cena = MenuModel("Cena", dinnerIngredients, 100)
 
-                val fm = FoodModel(id.toInt(), title, kcal.toInt(), ingredients)
-                foodList.add(fm)
-            }
+            foodMenu.add(desayuno)
+            foodMenu.add(mediaMañana)
+            foodMenu.add(almuerzo)
+            foodMenu.add(merienda)
+            foodMenu.add(cena)
 
         }catch (e: IOException){
 
         }
-
+        return foodMenu
     }
 
-    fun readJSON2(){
-        try {
-            val fileInString: String = applicationContext.assets.open("foodList.json").bufferedReader().use {
-                it.readText()
-            }
-            var jsonObjects = JSONObject(fileInString)
-            var calories = jsonObjects.getJSONArray("calorias")
-            
-            (0 until calories.length())
-            println(calories)
-            Log.e("kcal", calories.length().toString())
+    fun getIngredientsList(mealObject: JSONObject, mealName: String): List<String>{
+        var ingredientList = mutableListOf<String>()
+        val meal = mealObject.optJSONArray(mealName)
 
-        }catch (e: IOException){
-
+        for(a in 0 until meal.length()){
+            ingredientList.add(meal.get(a).toString())
         }
+        return ingredientList
     }
 
 

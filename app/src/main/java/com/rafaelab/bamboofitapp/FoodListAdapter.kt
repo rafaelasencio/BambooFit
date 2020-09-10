@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_food_list.view.*
-import kotlinx.android.synthetic.main.item_history_row.view.*
 
-class FoodListAdapter(val items: ArrayList<FoodModel>, val context: Context) : RecyclerView.Adapter<FoodListAdapter.ViewHolder>() {
+class FoodListAdapter(val items: ArrayList<MenuModel>, val context: Context) :
+    RecyclerView.Adapter<FoodListAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val tvFoodName = view.tvFoodName
+        val tvMealName = view.tvMealDay
         val tvIngredients = view.tvIngredients
         val tvKcal = view.tvKcal
     }
@@ -23,21 +23,18 @@ class FoodListAdapter(val items: ArrayList<FoodModel>, val context: Context) : R
     }
 
     override fun getItemCount(): Int {
-        Log.e("total", items.size.toString())
         return items.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val model: FoodModel = items[position]
-        holder.tvFoodName.text = model.getFoodTitle()
-        holder.tvIngredients.text = model.getIngredients().toString()
-        holder.tvKcal.text = model.getKcal().toString()
-        //val item = items.get(position)
-        //holder..text = "A"//item.getFoodTitle()
-        //holder.tvIngredients.text = "B"//item.getIngredients().toString()
-        //holder.tvKcal.text = "C"//item.getKcal().toString()
+        val model: MenuModel = items[position]
+        val mealName = model.getMeal()
+        val ingredients = model.getIngredientList(model.getIngredients())
+        val calories = model.getCalories().toString()
 
-        //Picasso.get().load()
+        holder.tvMealName.text = mealName
+        holder.tvIngredients.text = ingredients
+        holder.tvKcal.text = calories
     }
 
 }

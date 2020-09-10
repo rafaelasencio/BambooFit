@@ -1,13 +1,12 @@
 
 {
-   "calorias": [{
       "1000": {
          "desayuno": [
             "Leche descremada (150 ml)",
             "Pan blanco o integral.(25gr)",
             "Jamón cocido (30gr)"
          ],
-         "media-mañana": "1 pieza de fruta",
+         "media-mañana": ["1 pieza de fruta"],
          "almuerzo": [
             "Verduras cocidas (300gr)",
             "Carne magra a la plancha (125gr)",
@@ -26,11 +25,10 @@
       },
       "1200": {
          "desayuno": [
-            "Leche descremada (150 ml)",
-            "Pan blanco o integral.(25gr)",
-            "Jamón cocido (30gr)"
+            "AAA",
+            "BBB"
          ],
-         "media-mañana": "1 pieza de fruta",
+         "media-mañana": ["1 pieza de fruta"],
          "almuerzo": [
             "Verduras cocidas (300gr)",
             "Carne magra a la plancha (125gr)",
@@ -47,5 +45,4 @@
             "Pan tostado (25gr)"
          ]
       }
-   }]
 }
