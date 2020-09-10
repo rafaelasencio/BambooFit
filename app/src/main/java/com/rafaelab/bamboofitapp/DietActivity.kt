@@ -1,6 +1,7 @@
 package com.rafaelab.bamboofitapp
 
 import android.app.Dialog
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -97,8 +98,13 @@ class DietActivity : AppCompatActivity() {
         customDialog.setContentView(R.layout.dialog_calories_result)
         customDialog.tvCalories.text = calories.toString()
 
-        customDialog.btnContinue.setOnClickListener {
+        customDialog.tv_exit.setOnClickListener {
             customDialog.dismiss()
+        }
+        customDialog.btnGenerateDiet.setOnClickListener {
+            val intent = Intent(this,FoodListActivity::class.java)
+            intent.putExtra("calories_key", calories)
+            startActivity(intent)
         }
         customDialog.show()
     }

@@ -49,17 +49,26 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:textSize="20sp"
-
             android:text="Kcal"/>
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnContinue"
+        android:id="@+id/btnGenerateDiet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@color/colorAccent"
         android:textColor="@color/colorWhite"
-        android:text="CONTINUAR"/>
+        android:text="DIETA"/>
+
+    <TextView
+        android:id="@+id/tv_exit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@id/btnGenerateDiet"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorAccent"
+        android:text="Volver"/>
 
 </LinearLayout>

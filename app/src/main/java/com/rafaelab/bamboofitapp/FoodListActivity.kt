@@ -21,6 +21,7 @@ class FoodListActivity : AppCompatActivity() {
 
     private var foodMenu = ArrayList<MenuModel>()
     private var foodAdapter: FoodListAdapter? = null
+    var calories = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +39,10 @@ class FoodListActivity : AppCompatActivity() {
             onBackPressed()
         }
 
-        getDietForCalories(1000)
+        val calories = intent.getIntExtra("calories_key", calories)
+        if(calories != null){
+            getDietForCalories(calories)
+        }
         setupFoodListAdapter()
 
     }
