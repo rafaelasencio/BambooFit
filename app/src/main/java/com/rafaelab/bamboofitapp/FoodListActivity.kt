@@ -41,7 +41,9 @@ class FoodListActivity : AppCompatActivity() {
 
         val calories = intent.getIntExtra("calories_key", calories)
         if(calories != null){
-            getDietForCalories(calories)
+            val rangeCalories = getRangeCalories(calories)
+            //getDietForCalories(rangeCalories)
+            println(rangeCalories)
         }
         setupFoodListAdapter()
 
@@ -96,6 +98,15 @@ class FoodListActivity : AppCompatActivity() {
             ingredientList.add(meal.get(a).toString())
         }
         return ingredientList
+    }
+
+    fun getRangeCalories(calories: Int): Int{
+
+        val remainder = calories % 100
+        var remainingCalories = 100 - remainder
+        val result = if (remainder > 50) calories + remainingCalories else calories - remainder
+
+        return result
     }
 
 

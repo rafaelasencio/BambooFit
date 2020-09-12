@@ -25,6 +25,7 @@ class DietActivity : AppCompatActivity() {
 
         toolbar_diet_activity.setNavigationOnClickListener {
             onBackPressed()
+
         }
 
         btnCalculateCalories.setOnClickListener {
@@ -105,6 +106,7 @@ class DietActivity : AppCompatActivity() {
             val intent = Intent(this,FoodListActivity::class.java)
             intent.putExtra("calories_key", calories)
             startActivity(intent)
+            customDialog.dismiss()
         }
         customDialog.show()
     }
