@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "236937226739",
+    "firebase_url": "https://bamboofit-20d70.firebaseio.com",
+    "project_id": "bamboofit-20d70",
+    "storage_bucket": "bamboofit-20d70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:236937226739:android:2af90781850672eaee4a86",
+        "android_client_info": {
+          "package_name": "com.rafaelab.bamboofitapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "236937226739-rjn9fmru998r63rg8srmfvuqeamg16hf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9IIubIFBqo6u3oZkv2YlG4_-Ozzq81vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "236937226739-rjn9fmru998r63rg8srmfvuqeamg16hf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
