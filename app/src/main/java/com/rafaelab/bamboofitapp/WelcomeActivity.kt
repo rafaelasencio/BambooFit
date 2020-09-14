@@ -10,9 +10,13 @@ import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
 import androidx.viewpager2.widget.ViewPager2
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.activity_welcome.*
 
 class WelcomeActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
 
     private val introSliderAdapter = IntroSliderAdapter(
         listOf(
@@ -37,9 +41,14 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
+        auth = FirebaseAuth.getInstance()
+
+        checkIfUserIsLogged(auth.currentUser)
         vp_introSlider.adapter = introSliderAdapter
         setupIndicators()
         setCurrentIndicator(0)
+
+
         vp_introSlider.registerOnPageChangeCallback(object :
             ViewPager2.OnPageChangeCallback(){
 
@@ -52,13 +61,13 @@ class WelcomeActivity : AppCompatActivity() {
             if (vp_introSlider.currentItem + 1 < introSliderAdapter.itemCount){
                 vp_introSlider.currentItem+=1
             } else {
-                Intent(applicationContext, MainActivity::class.java).also {
+                Intent(applicationContext, RegisterActivity::class.java).also {
                     startActivity(it)
                 }
             }
         }
         tvSkipIntro.setOnClickListener {
-            Intent(applicationContext, MainActivity::class.java).also {
+            Intent(applicationContext, RegisterActivity::class.java).also {
                 startActivity(it)
             }
         }
@@ -96,6 +105,12 @@ class WelcomeActivity : AppCompatActivity() {
                     ContextCompat.getDrawable(applicationContext, R.drawable.item_indicator_inactive)
                 )
             }
+        }
+    }
+
+    private fun checkIfUserIsLogged(user: FirebaseUser?){
+        if(user != null){
+            startActivity(Intent(this, MainActivity::class.java))
         }
     }
 }
