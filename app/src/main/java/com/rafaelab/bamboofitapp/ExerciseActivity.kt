@@ -9,7 +9,6 @@ import android.os.CountDownTimer
 import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_exercise.*
@@ -18,6 +17,7 @@ import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
 import com.bumptech.glide.Glide;
+import com.rafaelab.bamboofitapp.Adapter.ExerciseStatusAdapter
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -213,7 +213,8 @@ class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun setupExerciseStatusRecyclerView(){
         rvExerciseStatus.layoutManager = LinearLayoutManager(this,
             LinearLayoutManager.HORIZONTAL, false)
-        exerciseAdapter = ExerciseStatusAdapter(exerciseList!!, this)
+        exerciseAdapter =
+            ExerciseStatusAdapter(exerciseList!!, this)
 
         rvExerciseStatus.adapter = exerciseAdapter
     }

@@ -1,11 +1,12 @@
-package com.rafaelab.bamboofitapp
+package com.rafaelab.bamboofitapp.Adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.rafaelab.bamboofitapp.MenuModel
+import com.rafaelab.bamboofitapp.R
 import kotlinx.android.synthetic.main.item_food_list.view.*
 
 class FoodListAdapter(val items: ArrayList<MenuModel>, val context: Context) :
@@ -18,8 +19,10 @@ class FoodListAdapter(val items: ArrayList<MenuModel>, val context: Context) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context)
-            .inflate(R.layout.item_food_list, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(context)
+                .inflate(R.layout.item_food_list, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
