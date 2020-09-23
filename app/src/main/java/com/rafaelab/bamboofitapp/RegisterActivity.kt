@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -55,21 +56,27 @@ class RegisterActivity : AppCompatActivity() {
 
             auth.createUserWithEmailAndPassword(email, password )
                 .addOnCompleteListener(this){
-                task ->
+                    if (!it.isSuccessful){
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(this, "error al crear el usuario", Toast.LENGTH_SHORT).show()
+                        return@addOnCompleteListener
+                    }
+                    if (it.isSuccessful){
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(this, "user created successfully", Toast.LENGTH_SHORT).show()
+                        /*
+                        val user:FirebaseUser? = auth.currentUser
+                        verifyEmail(user)
 
-                if(task.isSuccessful){
-                    val user:FirebaseUser? = auth.currentUser
-                    verifyEmail(user)
-
-                    val userBD = dbReference.child(user!!.uid)
-                    userBD.child("Name").setValue(name)
-                    userBD.child("lastName").setValue(lastName)
-                    action()
-                }else{
-                    progressBar.visibility = View.GONE
-                    Toast.makeText(this, "error al crear el usuario", Toast.LENGTH_SHORT).show()
-                }
+                        val userBD = dbReference.child(user!!.uid)
+                        userBD.child("Name").setValue(name)
+                        userBD.child("lastName").setValue(lastName)
+                        action()*/
+                    }
             }
+                .addOnFailureListener {
+                    Toast.makeText(this, "${it.message}", Toast.LENGTH_SHORT).show()
+                }
         }
     }
 
@@ -79,8 +86,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun verifyEmail(user: FirebaseUser?){
          user?.sendEmailVerification()?.addOnCompleteListener(this) {
-             task ->
-             if(task.isSuccessful){
+             if(it.isSuccessful){
                  Toast.makeText(this, "email enviado", Toast.LENGTH_SHORT).show()
              }else{
                  progressBar.visibility = View.GONE

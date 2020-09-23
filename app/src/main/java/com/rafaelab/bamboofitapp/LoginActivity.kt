@@ -45,14 +45,14 @@ class LoginActivity : AppCompatActivity() {
 
         if (!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)){
             progressBar.visibility = View.VISIBLE
-            auth.signInWithEmailAndPassword(user, password).addOnCompleteListener(this){
-                task ->
-                if(task.isSuccessful){
-                    action()
-                }else{
+            auth.signInWithEmailAndPassword(user, password)
+                .addOnCompleteListener(this){
+                    if(it.isSuccessful){
+                        action()
+                    }else{
+                        Toast.makeText(this, "Error en la autenticación", Toast.LENGTH_SHORT).show()
+                    }
                     progressBar.visibility = View.GONE
-                    Toast.makeText(this, "Error en la autenticación", Toast.LENGTH_SHORT).show()
-                }
             }
         }
     }
