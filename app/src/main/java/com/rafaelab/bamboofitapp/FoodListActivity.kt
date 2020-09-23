@@ -42,7 +42,7 @@ class FoodListActivity : AppCompatActivity() {
         val calories = intent.getIntExtra("calories_key", calories)
         if(calories != null){
             val rangeCalories = getRangeCalories(calories)
-            //getDietForCalories(rangeCalories)
+            getDietForCalories(rangeCalories)
             println(rangeCalories)
         }
         setupFoodListAdapter()
