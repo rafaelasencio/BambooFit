@@ -1,4 +1,4 @@
-package com.rafaelab.bamboofitapp
+package com.rafaelab.bamboofitapp.Adapter
 
 import android.content.Context
 import android.graphics.Color
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.rafaelab.bamboofitapp.R
 import kotlinx.android.synthetic.main.item_history_row.view.*
 
 class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
@@ -19,7 +20,11 @@ class HistoryAdapter(val context: Context, val items: ArrayList<String>) :
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_history_row, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(
+                context
+            ).inflate(R.layout.item_history_row, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {

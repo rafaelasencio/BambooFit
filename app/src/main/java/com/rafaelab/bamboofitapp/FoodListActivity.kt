@@ -1,21 +1,12 @@
 package com.rafaelab.bamboofitapp
 
-import android.content.res.Resources
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.LinearLayout
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.volley.Request
-import com.android.volley.RequestQueue
-import com.android.volley.toolbox.JsonArrayRequest
-import com.android.volley.toolbox.Volley
+import com.rafaelab.bamboofitapp.Adapter.FoodListAdapter
 import kotlinx.android.synthetic.main.activity_food_list.*
-import org.json.JSONArray
 import org.json.JSONObject
 import java.io.IOException
-import java.io.InputStream
 
 class FoodListActivity : AppCompatActivity() {
 

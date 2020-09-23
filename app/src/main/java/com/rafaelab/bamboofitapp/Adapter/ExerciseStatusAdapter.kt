@@ -1,4 +1,4 @@
-package com.rafaelab.bamboofitapp
+package com.rafaelab.bamboofitapp.Adapter
 
 import android.content.Context
 import android.graphics.Color
@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.rafaelab.bamboofitapp.ExerciseModel
+import com.rafaelab.bamboofitapp.R
 import kotlinx.android.synthetic.main.item_exercise_status.view.*
 
 class ExerciseStatusAdapter(val items:ArrayList<ExerciseModel>, val context: Context):
@@ -18,8 +20,10 @@ class ExerciseStatusAdapter(val items:ArrayList<ExerciseModel>, val context: Con
 
     //Devuelve objeto ViewHolder con la vista tvItem del ejercicio
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context)
-            .inflate(R.layout.item_exercise_status, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(context)
+                .inflate(R.layout.item_exercise_status, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -32,15 +36,21 @@ class ExerciseStatusAdapter(val items:ArrayList<ExerciseModel>, val context: Con
 
         if(model.getIsSelected()){
             holder.tvItem.background =
-                ContextCompat.getDrawable(context, R.drawable.circulo_color_borde)
+                ContextCompat.getDrawable(context,
+                    R.drawable.circulo_color_borde
+                )
             holder.tvItem.setTextColor(Color.parseColor("#212121"))
         }else if(model.getIsCompleted()){
             holder.tvItem.background =
-                ContextCompat.getDrawable(context, R.drawable.boton_circular_color_fondo)
+                ContextCompat.getDrawable(context,
+                    R.drawable.boton_circular_color_fondo
+                )
             holder.tvItem.setTextColor(Color.parseColor("#FFFFFF"))
         }else{
             holder.tvItem.background =
-                ContextCompat.getDrawable(context, R.drawable.circulo_color_gris)
+                ContextCompat.getDrawable(context,
+                    R.drawable.circulo_color_gris
+                )
             holder.tvItem.setTextColor(Color.parseColor("#212121"))
         }
     }
