@@ -26,32 +26,18 @@ class MainActivity : AppCompatActivity() {
 
         initComponents()
 
-        llExercise.setOnClickListener {
 
-            val intent = Intent(
-                this, StartExerciseActivity::class.java)
-            startActivity(intent)
+
+
+    }
+
+    override fun onBackPressed() {
+        if (mViewPager.currentItem == 0){
+            super.onBackPressed()
+        }else {
+            mViewPager.currentItem = mViewPager.currentItem - 1
         }
 
-        llRFM.setOnClickListener {
-            val intent = Intent(
-                this, RFMActivity::class.java)
-
-            startActivity(intent)
-        }
-
-        llHistory.setOnClickListener{
-            val intent = Intent(
-                this, HistoryActivity::class.java)
-            startActivity(intent)
-        }
-
-        llDiet.setOnClickListener {
-            //DietActivity
-            val intent = Intent(
-                this, DietActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun initComponents(){
@@ -66,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         mViewPager.offscreenPageLimit = 4
 
         mViewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+
 
             override fun onPageScrollStateChanged(state: Int) {
 
