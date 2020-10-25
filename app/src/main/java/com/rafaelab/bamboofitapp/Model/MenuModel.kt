@@ -1,4 +1,4 @@
-package com.rafaelab.bamboofitapp
+package com.rafaelab.bamboofitapp.Model
 
 import org.json.JSONObject
 

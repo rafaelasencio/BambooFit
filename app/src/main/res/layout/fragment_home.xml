@@ -1,165 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Fragment.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-    <LinearLayout
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="@dimen/main_screen_main_layout_padding">
+        android:padding="10dp"
+        android:windowSoftInputMode="stateAlwaysHidden"
+        tools:context=".Fragment.HomeFragment">
 
 
 
         <LinearLayout
-            android:id="@+id/llExercise"
-            android:layout_width="@dimen/start_button_size"
-            android:layout_height="@dimen/start_button_size"
-            android:layout_marginTop="@dimen/start_button_margin_top"
-            android:gravity="center"
-            android:background="@drawable/boton_circular_color_fondo">
-
-
-            <ImageView
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:tint="@color/colorWhite"
-                android:src="@drawable/ic_sport"/>
-
-        </LinearLayout>
-
-        <LinearLayout
+            android:id="@+id/ll_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="30dp"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:id="@+id/llRFM"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/boton_circular_color_fondo"
-                    android:gravity="center">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:text="MGR"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:text="Calculadora"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:id="@+id/llHistory"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/boton_circular_color_fondo"
-                    android:gravity="center">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:contentDescription="@string/image"
-                        android:src="@drawable/ic_calendar"/>
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="22sp"
-                    android:textStyle="bold"
-                    android:text="Historial"/>
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
             android:layout_marginTop="10dp"
-            android:baselineAligned="false"
-            android:orientation="horizontal">
+            android:padding="10dp">
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical">
+                android:layout_marginTop="20dp"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:text="Elige tu nivel mas adecuado"/>
 
-                <LinearLayout
-                    android:id="@+id/llDiet"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_gravity="center"
-                    android:background="@drawable/boton_circular_color_fondo"
-                    android:gravity="center">
+            <RadioGroup
+                android:id="@+id/rgLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/etWaist"
+                android:layout_margin="20dp"
+                android:background="@drawable/radio_group_tab_background"
+                android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:contentDescription="@string/image"
-                        android:src="@drawable/ic_food"
-                        android:tint="@color/colorWhite"/>
-                </LinearLayout>
+                <RadioButton
+                    android:id="@+id/rbBeginner"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="0.50"
+                    android:background="@drawable/tab_selector_background_color"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:checked="false"
+                    android:text="Principiante"
+                    android:textColor="@drawable/tab_selector_text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/rbMiddle"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="0.50"
+                    android:background="@drawable/tab_selector_background_color"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:checked="true"
+                    android:text="Intermedio"
+                    android:textColor="@drawable/tab_selector_text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/rbAdvanced"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_weight="0.50"
+                    android:background="@drawable/tab_selector_background_color"
+                    android:button="@null"
+                    android:checked="false"
+                    android:gravity="center"
+                    android:text="Avanzado"
+                    android:textColor="@drawable/tab_selector_text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/llStartExercise"
+
+                android:layout_width="@dimen/start_button_size"
+                android:layout_height="@dimen/start_button_size"
+                android:layout_marginTop="@dimen/start_button_margin_top"
+                android:gravity="center"
+                android:background="@drawable/boton_circular_color_fondo">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="22sp"
                     android:textStyle="bold"
-                    android:text="Dieta"/>
+                    android:textColor="@color/colorWhite"
+                    android:textSize="30sp"
+                    android:text="INICIAR"/>
             </LinearLayout>
-
-
-
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_below="@+id/ll_top"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
 
+            <TextView
+                android:id="@+id/tvSavedRoutines"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/colorAccent"
+                android:text="Historial"/>
 
+        </LinearLayout>
 
-
-    </LinearLayout>
-
-
-</RelativeLayout>
+    </RelativeLayout>

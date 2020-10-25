@@ -1,70 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/bottom_shape_navigation"
-        android:padding="5dp"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_alignParentStart="true"
-        android:layout_marginEnd="15dp"
+        android:layout_alignBottom="@+id/mViewPager"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginBottom="15dp">
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/bottom_shape_navigation"
+        android:elevation="5dp"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
 
         <ImageButton
-            android:id="@+id/btnHome"
+            android:id="@+id/homeBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_margin="5dp"
+            android:background="@android:color/white"
             android:padding="15dp"
-            android:src="@drawable/ic_home_black"
-            android:background="@color/colorWhite"/>
+            android:src="@drawable/ic_home_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <ImageButton
-            android:id="@+id/btnProfile"
+            android:id="@+id/profileBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_marginStart="52dp"
+            android:background="@android:color/white"
             android:padding="15dp"
             android:src="@drawable/ic_person_black"
-            android:background="@color/colorWhite"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
-            android:id="@+id/btnFitness"
+            android:id="@+id/calculatorBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:background="@android:color/white"
             android:padding="15dp"
-            android:src="@drawable/ic_fitness_center_black"
-            android:background="@color/colorWhite"/>
+            android:src="@drawable/ic_weight_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <ImageButton
-            android:id="@+id/btnSearch"
+            android:id="@+id/dietBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:layout_marginStart="52dp"
+            android:background="@android:color/white"
             android:padding="15dp"
-            android:src="@drawable/ic_search_black"
-            android:background="@color/colorWhite"/>
+            android:src="@drawable/ic_baseline_list_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </LinearLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/mViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="8dp"
+        />
+
 
 
 </RelativeLayout>

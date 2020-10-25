@@ -18,17 +18,19 @@ import java.util.*
 import kotlin.collections.ArrayList
 import com.bumptech.glide.Glide;
 import com.rafaelab.bamboofitapp.Adapter.ExerciseStatusAdapter
+import com.rafaelab.bamboofitapp.utils.Constants
+import kotlin.math.roundToLong
 
 class ExerciseActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     //Variables
     private var restTimer: CountDownTimer? = null
     private var restProgress = 0
-    private var restTimerDuration: Long = 1//0
+    private var restTimerDuration: Long = 1 //0
 
     private var exerciseTimer: CountDownTimer? = null
     private var exerciseProgress = 0
-    private var exerciseTimerDuration: Long = 1//30
+    private var exerciseTimerDuration: Long = 1 //30
 
     private var exerciseList: ArrayList<ExerciseModel>? = null
     private var currentExercisePosition = -1

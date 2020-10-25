@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.rafaelab.bamboofitapp.MenuModel
+import com.rafaelab.bamboofitapp.Model.MenuModel
 import com.rafaelab.bamboofitapp.R
 import kotlinx.android.synthetic.main.item_food_list.view.*
 

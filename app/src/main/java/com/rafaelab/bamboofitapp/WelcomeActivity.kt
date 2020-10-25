@@ -4,6 +4,7 @@ import android.content.Intent
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -21,19 +22,19 @@ class WelcomeActivity : AppCompatActivity() {
     private val introSliderAdapter = IntroSliderAdapter(
         listOf(
             IntroSlide(
-                "Aa",
-                "aaa",
-                R.drawable.ic_action_done
+                "Realiza los ejercicios que mejor se adapten a tu nivel",
+                "",
+                R.drawable.ic_onboarding1
             ),
             IntroSlide(
-                "Bb",
-                "bbb",
-                R.drawable.ic_action_done
+                "Escoge entre una gran variedad de alimentos y dietas saludables",
+                "",
+                R.drawable.ic_onboarding2
             ),
             IntroSlide(
-                "Cc",
-                "ccc",
-                R.drawable.ic_action_done
+                "Registra tus rutinas para llevar un control de tu progreso",
+                "",
+                R.drawable.ic_onboarding3
             )
         )
     )
@@ -41,6 +42,11 @@ class WelcomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
+
+        val someView: View = findViewById(R.id.ll_welcome)
+        val root = someView.rootView
+        root.setBackgroundColor(resources.getColor(R.color.colorWhite))
+
         auth = FirebaseAuth.getInstance()
 
         checkIfUserIsLogged(auth.currentUser)

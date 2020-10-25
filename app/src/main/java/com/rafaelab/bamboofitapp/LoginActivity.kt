@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var txtUsername: EditText
+    private lateinit var txtEmail: EditText
     private lateinit var txtPassword: EditText
     private lateinit var progressBar: ProgressBar
     private lateinit var auth: FirebaseAuth
@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        txtUsername = findViewById(R.id.etUser)
+        txtEmail = findViewById(R.id.etEmail)
         txtPassword = findViewById(R.id.etPassword)
         progressBar = findViewById(R.id.progressBar)
         auth = FirebaseAuth.getInstance()
@@ -40,7 +40,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser(){
-        val user: String = txtUsername.text.toString()
+        val user: String = txtEmail.text.toString()
         val password: String = txtPassword.text.toString()
 
         if (!TextUtils.isEmpty(user) && !TextUtils.isEmpty(password)){

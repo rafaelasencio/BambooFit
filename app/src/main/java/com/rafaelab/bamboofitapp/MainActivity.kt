@@ -1,22 +1,20 @@
 package com.rafaelab.bamboofitapp
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager.widget.ViewPager
-import com.rafaelab.bamboofitapp.Adapter.PageAdapter
-import kotlinx.android.synthetic.main.activity_main.*
+import com.rafaelab.bamboofitapp.utils.Constants
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mViewPager: ViewPager
     private lateinit var btnHome: ImageButton
     private lateinit var btnProfile: ImageButton
-    private lateinit var btnFitness: ImageButton
-    private lateinit var btnSearch: ImageButton
+    private lateinit var btnCalculator: ImageButton
+    private lateinit var btnDiet: ImageButton
     private lateinit var mPagerAdapter: PagerAdapter
 
 
@@ -25,10 +23,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         initComponents()
-
-
-
-
     }
 
     override fun onBackPressed() {
@@ -41,33 +35,47 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initComponents(){
-        mViewPager = findViewById(R.id.mViewPager)
-        btnHome = findViewById(R.id.btnHome)
-        btnProfile = findViewById(R.id.btnProfile)
-        btnFitness = findViewById(R.id.btnFitness)
-        btnSearch = findViewById(R.id.btnSearch)
 
-        mPagerAdapter = PageAdapter(supportFragmentManager)
+        mViewPager = findViewById(R.id.mViewPager)
+
+        btnHome = findViewById(R.id.homeBtn)
+        btnProfile = findViewById(R.id.profileBtn)
+        btnCalculator = findViewById(R.id.calculatorBtn)
+        btnDiet = findViewById(R.id.dietBtn)
+
+        btnHome.setOnClickListener {
+            mViewPager.currentItem = 0
+        }
+
+        btnProfile.setOnClickListener {
+            mViewPager.currentItem = 1
+        }
+
+        btnCalculator.setOnClickListener {
+            mViewPager.currentItem = 2
+        }
+
+        btnDiet.setOnClickListener {
+            mViewPager.currentItem = 3
+        }
+
+        mPagerAdapter = com.rafaelab.bamboofitapp.Fragment.PagerViewAdapter(
+            supportFragmentManager
+        )
         mViewPager.adapter = mPagerAdapter
         mViewPager.offscreenPageLimit = 4
 
         mViewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
-
-
-            override fun onPageScrollStateChanged(state: Int) {
-
-            }
-
+            override fun onPageScrollStateChanged(state: Int) {}
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-
             }
-
             override fun onPageSelected(position: Int) {
                 changingTabs(position)
+                Constants.hideKeyboard(mViewPager.context)
             }
         })
 
@@ -76,33 +84,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changingTabs(position: Int){
-
         if (position==0){
             btnHome.setImageResource(R.drawable.ic_home_green)
             btnProfile.setImageResource(R.drawable.ic_person_black)
-            btnFitness.setImageResource(R.drawable.ic_fitness_center_black)
-            btnSearch.setImageResource(R.drawable.ic_search_black)
+            btnCalculator.setImageResource(R.drawable.ic_weight_black)
+            btnDiet.setImageResource(R.drawable.ic_baseline_list_black)
         }
-
         if (position==1){
             btnHome.setImageResource(R.drawable.ic_home_black)
             btnProfile.setImageResource(R.drawable.ic_person_green)
-            btnFitness.setImageResource(R.drawable.ic_fitness_center_black)
-            btnSearch.setImageResource(R.drawable.ic_search_black)
+            btnCalculator.setImageResource(R.drawable.ic_weight_black)
+            btnDiet.setImageResource(R.drawable.ic_baseline_list_black)
         }
-
         if (position==2){
             btnHome.setImageResource(R.drawable.ic_home_black)
             btnProfile.setImageResource(R.drawable.ic_person_black)
-            btnFitness.setImageResource(R.drawable.ic_fitness_center_green)
-            btnSearch.setImageResource(R.drawable.ic_search_black)
+            btnCalculator.setImageResource(R.drawable.ic_weight_green)
+            btnDiet.setImageResource(R.drawable.ic_baseline_list_black)
         }
-
         if (position==3){
             btnHome.setImageResource(R.drawable.ic_home_black)
             btnProfile.setImageResource(R.drawable.ic_person_black)
-            btnFitness.setImageResource(R.drawable.ic_fitness_center_black)
-            btnSearch.setImageResource(R.drawable.ic_search_green)
+            btnCalculator.setImageResource(R.drawable.ic_weight_black)
+            btnDiet.setImageResource(R.drawable.ic_baseline_list_green)
         }
     }
 }

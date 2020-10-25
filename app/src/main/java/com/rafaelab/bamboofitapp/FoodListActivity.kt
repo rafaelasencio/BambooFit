@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rafaelab.bamboofitapp.Adapter.FoodListAdapter
+import com.rafaelab.bamboofitapp.Model.MenuModel
 import kotlinx.android.synthetic.main.activity_food_list.*
 import org.json.JSONObject
 import java.io.IOException
@@ -63,11 +64,31 @@ class FoodListActivity : AppCompatActivity() {
             val breakIngredients = getIngredientsList(jsonDiet, "merienda")
             val dinnerIngredients = getIngredientsList(jsonDiet, "cena")
 
-            val desayuno = MenuModel("Desayuno", breakfastIngredients, 100)
-            val mediaMañana = MenuModel("Media Mañana", brunchIngredients, 100)
-            val almuerzo = MenuModel("Almuerzo", lunchIngredients, 100)
-            val merienda = MenuModel("Merienda", breakIngredients, 100)
-            val cena = MenuModel("Cena", dinnerIngredients, 100)
+            val desayuno = MenuModel(
+                "Desayuno",
+                breakfastIngredients,
+                100
+            )
+            val mediaMañana = MenuModel(
+                "Media Mañana",
+                brunchIngredients,
+                100
+            )
+            val almuerzo = MenuModel(
+                "Almuerzo",
+                lunchIngredients,
+                100
+            )
+            val merienda = MenuModel(
+                "Merienda",
+                breakIngredients,
+                100
+            )
+            val cena = MenuModel(
+                "Cena",
+                dinnerIngredients,
+                100
+            )
 
             foodMenu.add(desayuno)
             foodMenu.add(mediaMañana)

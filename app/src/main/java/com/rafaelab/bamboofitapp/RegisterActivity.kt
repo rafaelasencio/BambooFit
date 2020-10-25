@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.rafaelab.bamboofitapp.Model.User
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -37,7 +38,7 @@ class RegisterActivity : AppCompatActivity() {
         progressBar = findViewById(R.id.progressBar)
         database = FirebaseDatabase.getInstance()
         auth = FirebaseAuth.getInstance()
-        dbReference = database.reference.child("User")
+        dbReference = database.reference.child("users")
     }
 
     fun registerUser(view: View){
@@ -54,7 +55,7 @@ class RegisterActivity : AppCompatActivity() {
             !TextUtils.isEmpty(email) && !TextUtils.isEmpty(password)){
             progressBar.visibility = View.VISIBLE
 
-            auth.createUserWithEmailAndPassword(email, password )
+            auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this){
                     if (!it.isSuccessful){
                         progressBar.visibility = View.GONE
@@ -64,14 +65,30 @@ class RegisterActivity : AppCompatActivity() {
                     if (it.isSuccessful){
                         progressBar.visibility = View.GONE
                         Toast.makeText(this, "user created successfully", Toast.LENGTH_SHORT).show()
+                        val uid = FirebaseAuth.getInstance().uid ?: ""
+                        val ref = FirebaseDatabase.getInstance().getReference("/users/$uid")
+                        val username =
+                            name.toLowerCase().replace("\\s".toRegex(),"") + "_" +
+                                    lastName.toLowerCase().replace("\\s".toRegex(), "")
+                        val user = User(uid, email, username,"","")
+                        ref.setValue(user)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Changes updated successfully", Toast.LENGTH_SHORT).show()
+                            }
+                            .addOnFailureListener {
+                                Toast.makeText(this, "Something was wrong", Toast.LENGTH_SHORT).show()
+                            }
                         /*
                         val user:FirebaseUser? = auth.currentUser
                         verifyEmail(user)
 
                         val userBD = dbReference.child(user!!.uid)
-                        userBD.child("Name").setValue(name)
+                        userBD.child("name").setValue(name)
                         userBD.child("lastName").setValue(lastName)
-                        action()*/
+
+                         */
+
+                        action()
                     }
             }
                 .addOnFailureListener {
